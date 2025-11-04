@@ -64,6 +64,8 @@ This project explores how eating, habits, physical activity, and lifestyle choic
 
 The variables that stood ut were **Gender, Weigth, FCVC** as the most important features. As well with features related with **family history with overweight** and **eating habits**. 
 
+Visual comparison between RandomForest and XGBoost.
+![Feature Importance Comparison](images/feature_importance_comp.png)
 ### Model Evaluation
 To evaluate the stability and generalization of both models, it was applied a Stratified K-Fodl with 5 partitions.
 This guarantees that the class proportions remains balanced in each iteration.
