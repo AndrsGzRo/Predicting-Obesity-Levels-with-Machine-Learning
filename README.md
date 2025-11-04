@@ -29,7 +29,84 @@ This project explores how eating, habits, physical activity, and lifestyle choic
 | CALC | Alcohol consumption |
 | NObeyesdad | Obesity level (target variable) |
 
+## RandomForest Classifier (RandomizedSearchCV) 
+### Confussion Matrix 
+The confussion matrix is the following:
+![Confusion Matrix - RandomForest](images/randomforest_cm.png)
 
+The interpretation of the confusion matrix is the following:
+- **Class 0 - Insufficient Weight**:
+    - 50 people with insufficient weight were classified correctly with *Insufficient_Weight.*
+    - 4 people were classified with *Normal_Weight*.
+
+- **Class 1 - Normal Weight**:
+    - 55 people with normal weight were classified correctly with *Normal_Weight*.
+    - 3 people were classified with *Insufficient_Weight*.
+  
+- **Class 2 - Overweight Level I**:
+    - 46 people were classified correctly with *Overweight_Level_I*
+    - 11 people were classified with *Normal_Weight*.
+    - 1 person was classified with *Overweight_Level_II*.
+    - 
+- **Class 3 - Overweight Level II**:
+    - 55 people were classified correctly with *Overweight_Level_II*.
+    - 1 person was classified with *Normal_Weight*.
+    - 1 person was classified with *Overweight_Level_I*.
+    - 1 person was classified with *Obesity_Type_I*.
+    - 
+- **Class 4 - Obesity Type I**:
+    - 67 people were classified correctly with *Obesity_Type_I*.
+    - 1 person was classified with *Overweight_Level_I.*
+    - 1 person was classified with *Overweight_Level_II.*
+    - 1 person was classified with *Obesity_Type_II.*
+    
+- **Class 5 - Obesity Type II**:
+    - 58 people were classified correctly with *Obesity_Type_II**.
+    - 1 person was classified with *Obesity_Type_I*.
+    - 1 person was classified with *Obesity_Type_III*.
+
+- **Class 6 - Obesity Type III**:
+    - 64 people were classifed correclty with *Obesity_Type_III.*
+    - 1 person was classified with *Obesitiy_Type_II*.
+
+## XGBoost Classifier
+### Confussion Matrix
+The confussion matrix is the following:
+![Confussion Matrix - XGBoost](images/xgboost_cm.png) 
+
+The interpretation of the confusion matrix is the following:
+- **Class 0 - Insufficient Weight**:
+    - 48 people with insufficient weight were classified correctly with *Insufficient_Weight.*
+    - 5 people were classified with *Normal_Weight*.
+    - 1 person was classified with *Overweight_Level_I.*
+
+- **Class 1 - Normal Weight**:
+    - 48 people with normal weight were classified correctly with *Normal_Weight*.
+    - 2 people were classified with *Insufficient_Weight*.
+    - 8 people were classified with *Overweight_Level_I*.
+  
+- **Class 2 - Overweight Level I**:
+    - 48 people were classified correctly with *Overweight_Level_I*
+    - 7 people were classified with *Normal_Weight*.
+    - 2 people were classified with *Overweight_Level_II*.
+      
+- **Class 3 - Overweight Level II**:
+    - 53 people were classified correctly with *Overweight_Level_II*.
+    - 2 people were classified with *Overweight_Level_I*.
+    - 3 people were classified with *Obesity_Type_I*.
+      
+- **Class 4 - Obesity Type I**:
+    - 69 people were classified correctly with *Obesity_Type_I*.
+    - 1 person was classified with *Overweight_Level_II.*
+    
+- **Class 5 - Obesity Type II**:
+    - 58 people were classified correctly with *Obesity_Type_II**.
+    - 2 people were classified with *Obesity_Type_I*.
+
+- **Class 6 - Obesity Type III**:
+    - 64 people were classifed correclty with *Obesity_Type_III.*
+    - 1 person was classified with *Obesitiy_Type_II*.
+      
 ## Feature Importance 
 ### **RandomForest (Randomized Search)**
 | Rank | Variable | Importancia |
