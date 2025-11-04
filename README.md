@@ -11,7 +11,7 @@ This project explores how eating, habits, physical activity, and lifestyle choic
 4. **Visualize relationships** between lifestyle variables and obesity levels.
 
 ## Dataset
-- **Source:** [UCI Irvine Machine Learning Repository](https://archive.ics.uci.edu/dataset/544/estimation+of+obesity+levels+based+on+eating+habits+and+physical+condition)
+- **Source:** [UC Irvine Machine Learning Repository](https://archive.ics.uci.edu/dataset/544/estimation+of+obesity+levels+based+on+eating+habits+and+physical+condition)
 - **Instances:** 2111
 - **Features:** 17
 
@@ -29,8 +29,22 @@ This project explores how eating, habits, physical activity, and lifestyle choic
 | CALC | Alcohol consumption |
 | NObeyesdad | Obesity level (target variable) |
 
-## RandomForest Classifier (RandomizedSearchCV) 
-### Confussion Matrix 
+## Target Distribution (NObeyesdad)
+![Target Distribution](images/nobeyesdad_dist.png)
+
+## Models 
+### RandomForest Classifier
+RandomForest is an ensemble model learning method based on multiple decision trees.
+Each tree is trained on a randomsubset of the data and features, and their predictios are averaged to reduce overffitng and improve generalization.
+It was chosen for its **robustness with mixed data types**, its **resistance to noise**, and its ability to provide **feature importance** for interpretation.
+
+### XGBoost Classifier
+XGBoost (Extreme Gradient Boosting) is a highly efficient boosting algorithm that builds trees sequentially, with each new tree correcting the errors of the previous ones.
+It is widely used for its **speed, regularization**, and **excellent performance on tabular data**.
+In this project, XGBoost achieved results comparable to the optimized RandomForest, showing strong capability to model **nonlinera relationships** between features. 
+
+## Confussion Matrix 
+###  RandomForest Classifier (RandomizedSearchCV) 
 The confussion matrix is the following:
 ![Confusion Matrix - RandomForest](images/randomforest_cm.png)
 
@@ -69,8 +83,7 @@ The interpretation of the confusion matrix is the following:
     - 64 people were classifed correclty with *Obesity_Type_III.*
     - 1 person was classified with *Obesitiy_Type_II*.
 
-## XGBoost Classifier
-### Confussion Matrix
+### XGBoost Classifier
 The confussion matrix is the following:
 ![Confussion Matrix - XGBoost](images/xgboost_cm.png) 
 
@@ -106,7 +119,15 @@ The interpretation of the confusion matrix is the following:
 - **Class 6 - Obesity Type III**:
     - 64 people were classifed correclty with *Obesity_Type_III.*
     - 1 person was classified with *Obesitiy_Type_II*.
-      
+
+## Model Performance Comparison
+| Model                 | Accuracy | Precision | Recall | F1-score | ROC-AUC |
+|------------------------|----------|------------|---------|-----------|----------|
+| Random Forest (Randomized Search) | 0.9409 | 0.9483 | 0.9409 | 0.9417 | 0.9946 |
+| XGBoost Classifier     | 0.9173 | 0.9189 | 0.9173 | 0.9176 | 0.9934 |
+
+Both models achieved **very similar and high performance**, confirming that ensemble tree-based methods are effective for this type of classification problem.
+
 ## Feature Importance 
 ### **RandomForest (Randomized Search)**
 | Rank | Variable | Importancia |
@@ -155,4 +176,15 @@ This guarantees that the class proportions remains balanced in each iteration.
 - Both models have **high predictive capacity**, surpassing 93% accuracy.
 - **Optimized RandomForest** was slightly superior, being the better option for interpretation and with training times.
 - Both models stand out **Weight, Height and FCVC (Frequency of vegetable consumption) as important features.
-- The last suggets that a **combination of physical and eating habits** offer a better predictive understanding to estimate the obesity levels. 
+- The last suggets that a **combination of physical and eating habits** offer a better predictive understanding to estimate the obesity levels.
+
+## Future Work
+- Test other ensemble algorithms like **LightGBM** or **CatBoost**.
+- Use **SHAP values** for more interpretable feature importance.
+- Apply **class balancing techniques.
+- Deploy thre trained model via an **API** or **interactive dashboard** for real-time predictions.
+  
+### 🧾 Summary
+
+This project demonstrates how **machine learning models can effectively classify obesity levels** using lifestyle, eating habits, and genetic predisposition variables.  
+Both Random Forest and XGBoost achieved high accuracy and stability, making them suitable for predictive analysis in health-related datasets.
